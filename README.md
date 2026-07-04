@@ -15,7 +15,7 @@ A python library for interact with Meander API
 # Install
 
 ```bash
-# soon
+pip install meander-api
 ```
 
 ## Usage Example
