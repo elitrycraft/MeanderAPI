@@ -20,48 +20,36 @@ Here is a comprehensive example demonstrating how to initialize the client, auth
 ```python
 from MeanderAPI import client, quests, genres
 
-# --- Authentication Methods ---
-
-# 1. Auth by token (you can get it by using google auth)
+# Auth by token you can get it by using google auth
 user = client.new_auth_by_token("MeanderToken")
 
-# 2. Guest mode (limited access)
+# Guest mode
 user = client.new_guest()
 
-# 3. Meander google auth
+# Meander google auth
 user = client.new_google_auth()
 
-
-# --- Quest Discovery ---
-
-# Get all available quests
+# Get all quests
 print(quests.get_quests(user))
 
-# Get a specific quest by its unique ID
+# Get quest by id
 print(quests.get_quest_by_id(user, "ba0b5e8d-0d4f-4368-af9f-2564bc00c07d"))
 
-# Download a quest file directly to your local path
-quests.download_quest(
-    user, 
-    quests.get_quest_by_id(user, "ba0b5e8d-0d4f-4368-af9f-2564bc00c07d"), 
-    r"C:\Users\Deniz\Desktop\MeanderAPI\mnd.mnd"
-)
+# Download quest
+quests.download_quest(user, quests.get_quest_by_id(user, "ba0b5e8d-0d4f-4368-af9f-2564bc00c07d"), r"C:\Users\Deniz\Desktop\MeanderAPI\mnd.mnd")
 
-# Search for quests with specific criteria (Query, Genre, Author/ID)
+# Get quest by search
 print(quests.get_quests_by_search(user, "test", genres.Adventure, "27ed560e-6a0f-4e67-bb7b-ce291e89f075"))
 
-
-# --- Social & Voting Interactions ---
-# Note: The following methods require an authenticated user (not Guest).
-
-# Check your current vote on a quest
+# Get my vote quest (Auth required)
 print(quests.get_my_vote(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
 
-# Remove your vote from a quest
+# Unvote quest (Auth required)
 print(quests.unvote(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
 
-# Like a quest
+# Like quest (Auth required)
 print(quests.like(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
 
-# Dislike a quest
+# Dislike quest (Auth required)
 print(quests.dislike(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
+```
