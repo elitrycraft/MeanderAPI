@@ -1,15 +1,13 @@
 # MeanderAPI
 
-A Python wrapper for interacting with the Meander platform API. Easily manage authentication, search for quests, filter by genres, download quest files, and manage user interactions like voting, liking, or disliking content.
-
+A python library for interact with Meander API
 ---
 
 ## Features
 
-* **Flexible Authentication:** Supports token-based auth, Google Auth, and Guest mode.
-* **Quest Management:** Fetch all quests, search by keywords/genres, or retrieve specific quests by ID.
-* **Downloads:** Download quest files directly to your local system.
-* **Social Engagement:** Cast votes, like, dislike, or unvote quests (requires authenticated session).
+* **Supports Google auth
+* **Download quests without auth
+* **Auth by token
 
 ---
 
