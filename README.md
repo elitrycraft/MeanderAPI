@@ -18,6 +18,8 @@ A python library for interact with Meander API
 pip install MeanderAPI
 ```
 
+# For more docs: (THIS)[https://github.com/elitrycraft/MeanderAPI/wiki]
+
 ## Usage Example
 
 Here is a comprehensive example demonstrating how to initialize the client, authenticate, browse quests, download them, and interact with the voting system.
