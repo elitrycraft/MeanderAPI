@@ -5,9 +5,10 @@ A python library for interact with Meander API
 
 ## Features
 
-* **Supports Google auth
-* **Download quests without auth
-* **Auth by token
+* Supports Google auth
+* Get all quest list without auth
+* Download quests without auth
+* Auth by token
 
 ---
 
