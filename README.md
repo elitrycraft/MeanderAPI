@@ -12,6 +12,12 @@ A python library for interact with Meander API
 
 ---
 
+# Install
+
+```bash
+# soon
+```
+
 ## Usage Example
 
 Here is a comprehensive example demonstrating how to initialize the client, authenticate, browse quests, download them, and interact with the voting system.
