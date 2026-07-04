@@ -1,0 +1,10 @@
+class genres:
+    Historical = "Historical"
+    Adventure = "Adventure"
+    Comedy = "Comedy"
+    Thriller = "Thriller"
+    Drama = "Drama"
+    SciFi = "Sci-Fi"
+    Mystery = "Mystery"
+    Horror = "Horror"
+    Fantasy = "Fantasy"
