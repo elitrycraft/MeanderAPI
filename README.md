@@ -74,5 +74,5 @@ print(client.toggle_follow(user, client.get_profile(user, "f7e7709b-ce64-4aea-ab
 print(client.update_streak(user))
 
 # Update profile (Auth required)
-print(client.update_profile(user, "test name", "test bio")
+print(client.update_profile(user, "test name", "test bio"))
 ```
