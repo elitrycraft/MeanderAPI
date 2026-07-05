@@ -33,3 +33,26 @@ print(quests.like(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d-c1
 # Dislike quest (Auth required)
 print(quests.dislike(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
 
+# Get user profile
+print(client.get_profile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075"))
+
+# Get user profile achievements
+print(client.get_profile_achievements(user, client.get_profile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075")))
+
+# Toggle follow (Auth required)
+print(client.toggle_follow(user, client.get_profile(user, "f7e7709b-ce64-4aea-ab65-4d1c11c31756")))
+
+# Update streak (auth required)
+print(client.update_streak(user))
+
+# Update profile (Auth required)
+print(client.update_profile(user, "test name", "test bio", "path_to_avatar_jpeg"))
+
+# Get featured quests (Auth required)
+print(quests.get_featured_quests(user))
+
+# Get recent quests (Auth required)
+print(quests.get_recent_quests(user))
+
+# Get like genres quests (Auth required)
+print(quests.get_like_genres_quests(user))
