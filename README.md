@@ -19,6 +19,7 @@ pip install MeanderAPI
 ```
 
 # For more docs: [THIS](https://github.com/elitrycraft/MeanderAPI/wiki)
+# For official docs: [THIS](https://github.com/elitrycraft/MeanderAPI/blob/main/docs/Meander_API_Docs.md)
 
 ## Usage Example
 
