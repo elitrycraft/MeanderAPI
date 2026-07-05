@@ -63,4 +63,7 @@ print(quests.dislike(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d
 
 # Get user profile
 print(client.get_profile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075"))
+
+# Get user profile achievements
+print(client.get_profile_achievements(user, client.get_profile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075")))
 ```
