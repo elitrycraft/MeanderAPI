@@ -75,4 +75,13 @@ print(client.update_streak(user))
 
 # Update profile (Auth required)
 print(client.update_profile(user, "test name", "test bio", "path_to_avatar_jpeg"))
+
+# Get featured quests (Auth required)
+print(quests.get_featured_quests(user))
+
+# Get recent quests (Auth required)
+print(quests.get_recent_quests(user))
+
+# Get like genres quests (Auth required)
+print(quests.get_like_genres_quests(user))
 ```
