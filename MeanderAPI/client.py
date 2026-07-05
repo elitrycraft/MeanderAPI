@@ -94,3 +94,11 @@ class client:
         token = code_to_token(code)
         token_meander = get_token(token)
         return token_meander
+    def get_profile(client, profile_id):
+        headers = {
+            "Authorization": f"Bearer {client}",
+            "Content-Type": "application/json"
+        }
+
+        resp = requests.get(f"https://backend.meander.sbs/profiles/{profile_id}", headers=headers)
+        return resp.json()
