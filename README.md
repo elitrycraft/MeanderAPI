@@ -66,4 +66,7 @@ print(client.get_profile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075"))
 
 # Get user profile achievements
 print(client.get_profile_achievements(user, client.get_profile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075")))
+
+# Toggle follow (Auth required)
+print(client.toggle_follow(user, client.get_profile(user, "f7e7709b-ce64-4aea-ab65-4d1c11c31756")))
 ```
