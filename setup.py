@@ -8,6 +8,8 @@ setup(
     version="0.1.6",
     author="Deniz1111212",
     author_email="elitrycraft@gmail.com",
+    maintainer="CodCatDev",
+    maintainer_email="codcatdev@gmail.com",
     description="A python library for interact with Meander API",
     long_description=long_description,
     long_description_content_type="text/markdown",
