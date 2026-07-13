@@ -1,7 +1,7 @@
 import requests, json
 
-class quests:
-    def get_quests(client):
+class Quests:
+    def getQuests(client):
         headers = {
             "Authorization": f"Bearer {client}",
             "Content-Type": "application/json"
@@ -9,7 +9,7 @@ class quests:
 
         resp = requests.get("https://backend.meander.sbs/quests", headers=headers)
         return resp.json()
-    def get_quest_by_id(client, quest_id):
+    def getQuestById(client, quest_id):
         headers = {
             "Authorization": f"Bearer {client}",
             "Content-Type": "application/json"
@@ -17,7 +17,7 @@ class quests:
 
         resp = requests.get("https://backend.meander.sbs/quests/" + quest_id, headers=headers)
         return resp.json()
-    def download_quest(client, quest, path):
+    def downloadQuest(client, quest, path):
         headers = {
             "Authorization": f"Bearer {client}",
             "Content-Type": "application/json"
@@ -28,7 +28,7 @@ class quests:
         resp = requests.get(quest_url, headers=headers)
         with open(path, "wb") as f:
             f.write(resp.content)
-    def get_quests_by_search(client, query=None, genre=None, author_id=None):
+    def getQuestsBySearch(client, query=None, genre=None, author_id=None):
         params = {}
         if query:
             params["search"] = query
@@ -79,7 +79,7 @@ class quests:
             json={"action": "remove"}
         )
         return resp.json()
-    def get_my_vote(client, quest):
+    def getMyVote(client, quest):
         headers = {
             "Authorization": f"Bearer {client}",
             "Content-Type": "application/json"

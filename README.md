@@ -26,62 +26,62 @@ pip install MeanderAPI
 Here is a comprehensive example demonstrating how to initialize the client, authenticate, browse quests, download them, and interact with the voting system.
 
 ```python
-from MeanderAPI import client, quests, genres
+from MeanderAPI import Client, Genres, Quests
 
 # Auth by token you can get it by using google auth
-user = client.new_auth_by_token("MeanderToken")
+user = Client.TokenAuth("MeanderToken")
 
 # Guest mode
-user = client.new_guest()
+user = Client.Guest()
 
 # Meander google auth
-user = client.new_google_auth()
+user = Client.GoogleAuth()
 
 # Get all quests
-print(quests.get_quests(user))
+print(Quests.getQuests(user))
 
 # Get quest by id
-print(quests.get_quest_by_id(user, "ba0b5e8d-0d4f-4368-af9f-2564bc00c07d"))
+print(Quests.getQuestById(user, "ba0b5e8d-0d4f-4368-af9f-2564bc00c07d"))
 
 # Download quest
-quests.download_quest(user, quests.get_quest_by_id(user, "ba0b5e8d-0d4f-4368-af9f-2564bc00c07d"), r"C:\Users\Deniz\Desktop\MeanderAPI\mnd.mnd")
+Quests.downloadQuest(user, quests.getQuestById(user, "ba0b5e8d-0d4f-4368-af9f-2564bc00c07d"), r"C:\Users\Deniz\Desktop\MeanderAPI\mnd.mnd")
 
 # Get quest by search
-print(quests.get_quests_by_search(user, "test", genres.Adventure, "27ed560e-6a0f-4e67-bb7b-ce291e89f075"))
+print(Quests.getQuestsBySearch(user, "test", Genres.Adventure, "27ed560e-6a0f-4e67-bb7b-ce291e89f075"))
 
 # Get my vote quest (Auth required)
-print(quests.get_my_vote(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
+print(Quests.getMyVote(user, Quests.getQuestById(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
 
 # Unvote quest (Auth required)
-print(quests.unvote(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
+print(Quests.unvote(user, Quests.getQuestById(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
 
 # Like quest (Auth required)
-print(quests.like(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
+print(quests.like(user, Quests.getQuestById(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
 
 # Dislike quest (Auth required)
-print(quests.dislike(user, quests.get_quest_by_id(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
+print(Quests.dislike(user, Quests.getQuestById(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
 
 # Get user profile
-print(client.get_profile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075"))
+print(Client.getProfile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075"))
 
 # Get user profile achievements
-print(client.get_profile_achievements(user, client.get_profile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075")))
+print(Client.getProfileAdvancements(user, Client.getProfile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075")))
 
 # Toggle follow (Auth required)
-print(client.toggle_follow(user, client.get_profile(user, "f7e7709b-ce64-4aea-ab65-4d1c11c31756")))
+print(Client.toggleFollow(user, Client.getProfile(user, "f7e7709b-ce64-4aea-ab65-4d1c11c31756")))
 
 # Update streak (auth required)
-print(client.update_streak(user))
+print(Client.updateStreak(user))
 
 # Update profile (Auth required)
-print(client.update_profile(user, "test name", "test bio", "path_to_avatar_jpeg"))
+print(Client.updateProfile(user, "test name", "test bio", "path_to_avatar_jpeg"))
 
 # Get featured quests (Auth required)
-print(quests.get_featured_quests(user))
+print(Quests.getFeaturedQuests(user))
 
 # Get recent quests (Auth required)
-print(quests.get_recent_quests(user))
+print(Quests.getRecentQuests(user))
 
 # Get like genres quests (Auth required)
-print(quests.get_like_genres_quests(user))
+print(Quests.getLikeGenresQuests(user))
 ```

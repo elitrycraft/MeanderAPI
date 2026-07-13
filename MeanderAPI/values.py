@@ -1,4 +1,4 @@
-class genres:
+class Genres:
     Historical = "Historical"
     Adventure = "Adventure"
     Comedy = "Comedy"

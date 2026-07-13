@@ -83,18 +83,18 @@ def get_token(id_token):
         return "NoToken"
 
 
-class client:
-    def new_guest():
+class Client:
+    def Guest():
         return "NoToken"
-    def new_auth_by_token(token):
+    def TokenAuth(token):
         return token
-    def new_google_auth():
+    def GoogleAuth():
         webbrowser.open(google_auth_url)
         code = get_code()
         token = code_to_token(code)
         token_meander = get_token(token)
         return token_meander
-    def get_profile(client, profile_id):
+    def getProfile(client, profile_id):
         headers = {
             "Authorization": f"Bearer {client}",
             "Content-Type": "application/json"
@@ -102,7 +102,7 @@ class client:
 
         resp = requests.get(f"https://backend.meander.sbs/profiles/{profile_id}", headers=headers)
         return resp.json()
-    def get_profile_achievements(client, profile):
+    def getProfileAdvancements(client, profile):
         profile_id = profile["id"]
         headers = {
             "Authorization": f"Bearer {client}",
@@ -111,7 +111,7 @@ class client:
 
         resp = requests.get(f"https://backend.meander.sbs/profiles/{profile_id}/achievements", headers=headers)
         return resp.json()
-    def toggle_follow(client, profile):
+    def toggleFollow(client, profile):
         headers = {
             "Authorization": f"Bearer {client}",
             "Content-Type": "application/json"
@@ -122,7 +122,7 @@ class client:
             headers=headers
         )
         return resp.json()
-    def update_streak(client):
+    def updateStreak(client):
         headers = {
             "Authorization": f"Bearer {client}",
             "Content-Type": "application/json"
@@ -132,7 +132,7 @@ class client:
             headers=headers
         )
         return resp.json()
-    def update_profile(client, full_name=None, bio=None, avatar_path=None):
+    def updateProfile(client, full_name=None, bio=None, avatar_path=None):
         url = "https://backend.meander.sbs/profiles/me"
         headers = {
             "Authorization": f"Bearer {client}"
