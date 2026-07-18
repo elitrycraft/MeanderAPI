@@ -1,87 +1,52 @@
-# MeanderAPI
+<div align="center">
+    <h1>MeanderAPI</h1>
+    <h3>A lightweight and user-friendly Python wrapper for the <a href="https://meander.sbs/">Meander</a> API.</h3>
+    <a href="https://github.com/elitrycraft/MeanderAPI/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/elitrycraft/MeanderAPI?style=for-the-badge&logo=github&color=f4dbd6&logoColor=D9E0EE&labelColor=302D41"></a>
+    <a href="https://github.com/elitrycraft/MeanderAPI/releases/latest">
+    <img alt="Releases" src="https://img.shields.io/github/release/elitrycraft/MeanderAPI.svg?style=for-the-badge&logo=semantic-release&color=f5bde6&logoColor=D9E0EE&labelColor=302D41"/></a>
+    <a href="https://pypi.org/project/MeanderAPI/#history"><img alt="PIPY Version" src="https://img.shields.io/pypi/v/MeanderAPI?style=for-the-badge&logo=python&color=65411d&logoColor=D9E0EE&labelColor=302D41"></a>
+    <a href="https://pypi.org/project/MeanderAPI/"><img alt="PIPY Downloads" src="https://img.shields.io/pypi/dm/MeanderAPI?style=for-the-badge&logo=python&color=38427a&logoColor=D9E0EE&labelColor=302D41"></a>
+    <br>
+    <h3>Contributors</h3>
+    <a href="https://github.com/elitrycraft/MeanderAPI/graphs/contributors">
+        <img src="https://contrib.rocks/image?repo=elitrycraft/MeanderAPI" />
+    </a>
+</div>
 
-A python library for interact with Meander API
----
 
 ## Features
+### Here is what this library can do
 
-* Supports Google auth
-* Get all quest list without auth
-* Download quests without auth
-* Auth by token
+- [x] Guest mode
+- [x] Full Asynchrony
+- [ ] Log-in to Accounts (DEVELOPING)
 
----
 
-# Install
+
+
+## Install
+### Installation Process
+You can easily install the library from PyPI using pip:
 
 ```bash
 pip install MeanderAPI
 ```
 
-# For more docs: [THIS](https://github.com/elitrycraft/MeanderAPI/wiki)
-# For official docs: [THIS](https://github.com/elitrycraft/MeanderAPI/blob/main/docs/Meander_API_Docs.md)
+## Quick start
+### Getting Started with the Library
 
-## Usage Example
-
-Here is a comprehensive example demonstrating how to initialize the client, authenticate, browse quests, download them, and interact with the voting system.
+### Example 1
+Getting a user info by id
 
 ```python
-from MeanderAPI import Client, Genres, Quests
+from MeanderAPI import GuestClient
+import asyncio
 
-# Auth by token you can get it by using google auth
-user = Client.TokenAuth("MeanderToken")
+async def main():
+    async with GuestClient(__name__) as client:
+        user = await client.getUserProfile(id="27ed560e-6a0f-4e67-bb7b-ce291e89f075")
+        print(user)
 
-# Guest mode
-user = Client.Guest()
-
-# Meander google auth
-user = Client.GoogleAuth()
-
-# Get all quests
-print(Quests.getQuests(user))
-
-# Get quest by id
-print(Quests.getQuestById(user, "ba0b5e8d-0d4f-4368-af9f-2564bc00c07d"))
-
-# Download quest
-Quests.downloadQuest(user, quests.getQuestById(user, "ba0b5e8d-0d4f-4368-af9f-2564bc00c07d"), r"C:\Users\Deniz\Desktop\MeanderAPI\mnd.mnd")
-
-# Get quest by search
-print(Quests.getQuestsBySearch(user, "test", Genres.Adventure, "27ed560e-6a0f-4e67-bb7b-ce291e89f075"))
-
-# Get my vote quest (Auth required)
-print(Quests.getMyVote(user, Quests.getQuestById(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
-
-# Unvote quest (Auth required)
-print(Quests.unvote(user, Quests.getQuestById(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
-
-# Like quest (Auth required)
-print(quests.like(user, Quests.getQuestById(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
-
-# Dislike quest (Auth required)
-print(Quests.dislike(user, Quests.getQuestById(user, "7915972f-92bb-4464-b14d-c1a279cd8a26")))
-
-# Get user profile
-print(Client.getProfile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075"))
-
-# Get user profile achievements
-print(Client.getProfileAdvancements(user, Client.getProfile(user, "27ed560e-6a0f-4e67-bb7b-ce291e89f075")))
-
-# Toggle follow (Auth required)
-print(Client.toggleFollow(user, Client.getProfile(user, "f7e7709b-ce64-4aea-ab65-4d1c11c31756")))
-
-# Update streak (auth required)
-print(Client.updateStreak(user))
-
-# Update profile (Auth required)
-print(Client.updateProfile(user, "test name", "test bio", "path_to_avatar_jpeg"))
-
-# Get featured quests (Auth required)
-print(Quests.getFeaturedQuests(user))
-
-# Get recent quests (Auth required)
-print(Quests.getRecentQuests(user))
-
-# Get like genres quests (Auth required)
-print(Quests.getLikeGenresQuests(user))
+asyncio.run(main())
 ```

@@ -1,11 +1,7 @@
-from .client import Client
-from .quests import Quests
-from .values import *
-from .types import *
+from .types import User
+from .client import GuestClient
 
 __all__ = [
-    "Client",
-    "Quests",
-    "Genres",
-    "types"
+    'User',
+    "GuestClient"
 ]
